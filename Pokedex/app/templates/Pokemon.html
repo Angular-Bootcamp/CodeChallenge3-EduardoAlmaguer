@@ -1,0 +1,49 @@
+﻿<div class="container-fluid">
+    <div class="row search border-gray">
+        <div class="col-xs-10">
+            <input class="form-control" type="text" placeholder="Search..." ng-model="search.name" />
+        </div>
+        <div class="col-xs-2">
+            <img ng-click="SortBy()" class="img-responsive" role="button" src="Images/filter-results-button.png" />
+        </div>
+    </div>
+    
+    <div ng-repeat="item in Pokemon.getAll | filter:search | inArray:Caught.getAll():'number':Caught.IsEnabled | inArray:BattleBox.getAll():'number':BattleBox.IsEnabled | orderBy:SortOrder" class="row border-gray">
+        <div class="col-xs-3 pokemon-image-container">
+            <img class="img-thumbnail pokemon-image" ng-src="{{item.image}}" />
+        </div>
+        <div class="col-xs-6">
+            <div class="row">
+                <div class="col-xs-12">
+                    <h4>
+                        <a ng-href="#/Description?Pokemon={{item.number}}">{{item.name}}</a>
+                    </h4>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-6" ng-repeat="type in item.types">
+                    <h5 class="type" ng-class="type">
+                        {{type}}
+                    </h5>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-xs-3">
+            <div class="row">
+                <div class="col-xs-12  font-gray">
+                    <h5 class="text-right"># {{item.number}}</h5>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-6 IconAlign">
+                    <img role="button" ng-src="{{Caught.getImage(item.number)}}" class="img-responsive" ng-click="Caught.AddOrRemove(item.number);" />
+                </div>
+                <div class="col-xs-6 IconAlign">
+                    <img role="button" ng-src="{{BattleBox.getImage(item.number)}}" class="img-responsive" ng-click="BattleBox.AddOrRemove(item.number);" />
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

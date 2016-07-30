@@ -1,0 +1,113 @@
+﻿<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-8 col-xs-push-4">
+            <div class="row">
+                <div class="col-xs-8">
+                    <h4 class="PokemonName">
+                        #{{Pokemon.Current.number}} {{Pokemon.Current.name}}
+                    </h4>
+                </div>
+                <div class="col-xs-2 IconAlign">
+                    <img role="button" ng-src="{{Caught.getImage(Pokemon.Current.number)}}" class="img-responsive" ng-click="Caught.AddOrRemove(Pokemon.Current.number);" />
+                </div>
+                <div class="col-xs-2 IconAlign">
+                    <img role="button" ng-src="{{BattleBox.getImage(Pokemon.Current.number)}}" class="img-responsive" ng-click="BattleBox.AddOrRemove(Pokemon.Current.number);" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4">
+            <img class="img-responsive pokemonimg zoom" ng-src="{{Pokemon.Current.image}}"/>
+        </div>
+        <div class="col-xs-8">
+            <div class="row">
+                <div class="col-xs-12">
+                    <h5 class="Pokemon-Descripcion">
+                        {{Pokemon.Current.height}}, {{Pokemon.Current.weight}}
+                    </h5>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 ">
+                    <h5 class="Pokemon-Descripcion">
+                        {{Pokemon.Current.description}}
+                    </h5>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-6" ng-repeat="type in Pokemon.Current.types">
+                    <h5 class="type" ng-class="type">
+                        {{type}}
+                    </h5>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 gray-background">
+            <h4 class="font-white">
+                General Information
+            </h4>
+        </div>
+    </div>
+    <div class="row border-gray">
+        <div class="col-xs-6">
+            <h4 class="font-grayDark">
+                Hidden Hability
+            </h4>
+        </div>
+        <div class="col-xs-6">
+            <h4 class="font-gray">
+                {{Pokemon.Current.hidden}}
+            </h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-6">
+            <h4 class="font-grayDark">
+                Location
+            </h4>
+        </div>
+        <div class="col-xs-6">
+            <h4 class="font-gray">
+                Safari Zone
+            </h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 gray-background">
+            <h4 class="font-white">
+                Evolution
+            </h4>
+        </div>
+    </div>
+    <div class="row border-gray" ng-repeat="pokemon in Pokemon.Current.EvolutionChain">
+        <div class="row border-gray">
+            <div class="col-xs-3">
+                <img class="img-responsive" ng-src="{{pokemon.image}}" />
+            </div>
+            <div class="col-xs-9">
+                <div class="row">
+                    <div class="col-xs-9">
+                        <h4>
+                            {{pokemon.name}}
+                        </h4>
+                    </div>
+                    <div class="col-xs-3 font-gray">
+                        <h5># {{pokemon.number}}</h5>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-4" ng-repeat="type in pokemon.types">
+                        <h5 class="type" ng-class="type">
+                            {{type}}
+                        </h5>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
