@@ -6,7 +6,7 @@
                 return data;
             }
             else {
-                var query = $resource('data/pokemon.json').query();
+                var query = $resource('/../Pokemon/GetAll').query();
                 query.
                 $promise.then(
                 function (event) {

@@ -31,9 +31,9 @@ Images/filter-results-button.png
 fonts/glyphicons-halflings-regular.woff2
 fonts/glyphicons-halflings-regular.woff
 fonts/glyphicons-halflings-regular.ttf
+http://pokeapi.co/media/sprites/pokemon/
 
-data/pokemon.json
 NETWORK:
+../Pokemon/GetAll
 
-http://pokeapi.co/media/sprites/pokemon/<p>
 
