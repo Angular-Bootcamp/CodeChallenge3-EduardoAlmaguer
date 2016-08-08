@@ -42,20 +42,12 @@ nav {
     background-color: @Main-white !important;
 }
 
-.toggle:focus, .toggle:hover {
+.navbar-toggle:focus, .navbar-toggle:hover {
     background-color: @Main-purple !important;
     float: left !important;
-    margin-left: 15px !important;
-    cursor:pointer;
 }
 
-.toggle {
-    float: left;
-    margin-left: 15px;
-    border: none;
-}
-
-span.toggle {
+span.navbar-toggle {
     display:none;
 }
 
@@ -64,23 +56,24 @@ span.toggle {
 }
 
 .navbar-brand {
-    width: 49%;
     text-align: right;
     padding-top: 8px;
 }
-////////////////////////////////////////////////////////////
-header h4 {
-    color: White;
-    text-align: center;
-    width: 90%;
-    display: inline-block;
-}
 
-.glyphicon-chevron-left {
+.navbar-toggle
+{
+    float:left;
+    border:none;
     color: white;
     top: 0px;
     font-size: 18px;
+    cursor:pointer;
 }
+
+
+
+
+////////////////////////////////////////////////////////////
 
 .PokemonName {
     color: @Main-pink;
@@ -221,8 +214,6 @@ header h4 {
 .font-grayDark {
     color: darken(@Main-silver, 20%);
 }
-
-
 
 .font-white {
     color: @Main-white;

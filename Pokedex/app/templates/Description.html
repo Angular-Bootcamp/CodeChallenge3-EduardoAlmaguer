@@ -18,7 +18,7 @@
     </div>
     <div class="row">
         <div class="col-xs-4">
-            <img class="img-responsive pokemonimg zoom" ng-src="{{Pokemon.Current.image}}"/>
+            <img class="img-responsive pokemonimg zoom" ng-src="{{Pokemon.Current.image}}" />
         </div>
         <div class="col-xs-8">
             <div class="row">
@@ -41,7 +41,7 @@
                         {{type}}
                     </h5>
                 </div>
-                
+
             </div>
         </div>
     </div>
@@ -72,7 +72,7 @@
         </div>
         <div class="col-xs-6">
             <h4 class="font-gray">
-                Safari Zone
+                {{Pokemon.Current.location}}
             </h4>
         </div>
     </div>
@@ -83,31 +83,9 @@
             </h4>
         </div>
     </div>
-    <div class="row border-gray" ng-repeat="pokemon in Pokemon.Current.EvolutionChain">
-        <div class="row border-gray">
-            <div class="col-xs-3">
-                <img class="img-responsive" ng-src="{{pokemon.image}}" />
-            </div>
-            <div class="col-xs-9">
-                <div class="row">
-                    <div class="col-xs-9">
-                        <h4>
-                            {{pokemon.name}}
-                        </h4>
-                    </div>
-                    <div class="col-xs-3 font-gray">
-                        <h5># {{pokemon.number}}</h5>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-xs-4" ng-repeat="type in pokemon.types">
-                        <h5 class="type" ng-class="type">
-                            {{type}}
-                        </h5>
-                    </div>
-
-                </div>
-            </div>
-        </div>
+    <div ng-repeat="pokemon in Pokemon.Current.EvolutionChain">
+        <pokemon-container pokemon="pokemon" showem="true"></pokemon-container>
+    
     </div>
+   
 </div>

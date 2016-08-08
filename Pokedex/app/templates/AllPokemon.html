@@ -1,0 +1,48 @@
+﻿<div class="container-fluid" >
+    <div class="row search border-gray">
+        <div class="col-xs-10">
+            <input class="form-control" type="text" placeholder="Search..." ng-model="search.name" />
+        </div>
+        <div class="col-xs-2">
+            <img ng-click="sortBy()" class="img-responsive" role="button" src="Images/filter-results-button.png" 
+        </div>
+    </div>
+    <div ng-repeat="item in pokemons | filter:search | inArray:Allcaugh():'number':caugh | inArray:AllInBattleBox():'number':BattleBox | orderBy:sortorder" class="row border-gray">
+        <div class="col-xs-3 pokemon-image-container">
+            <img class="img-thumbnail pokemon-image" ng-src="{{item.image}}" />
+        </div>
+        <div class="col-xs-6">
+            <div class="row">
+                <div class="col-xs-12">
+                    <h4>
+                        {{item.name}}
+                    </h4>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-6" ng-repeat="type in item.types">
+                    <h5 class="type" ng-class="type">
+                        {{type}}
+                    </h5>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-xs-3">
+            <div class="row">
+                <div class="col-xs-12  font-gray">
+                    <h5 class="text-right"># {{item.number}}</h5>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-6 IconAlign">
+                    <img role="button" ng-src="{{Iscaugh(item.number)}}" class="img-responsive" ng-click="AddOrRemoveToCaugh(item.number);" />
+                </div>
+                <div class="col-xs-6 IconAlign">
+                    <img role="button" ng-src="{{IsInBattleBox(item.number)}}" class="img-responsive" ng-click="AddOrRemoveToBattleBox(item.number);" />
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

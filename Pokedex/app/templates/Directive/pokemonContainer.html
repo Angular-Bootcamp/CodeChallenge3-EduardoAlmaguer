@@ -1,0 +1,43 @@
+﻿<div class="row border-gray">
+    <div class="col-xs-3 pokemon-image-container">
+        <img class="img-thumbnail pokemon-image" ng-src="{{pokemon.image}}" />
+    </div>
+    <div class="col-xs-6">
+        <div class="row">
+            <div class="col-xs-6">
+                <h4>
+                    <a ng-show="showem">{{pokemon.name}}</a>
+                    <a ng-show="!showem" ng-click="changeOption('DESCRIPTION')" ng-href="#/Description?title=DESCRIPTION&Pokemon={{pokemon.number}}">{{pokemon.name}}</a>
+                </h4>
+            </div>
+            <div class="col-xs-6">
+                <h5 ng-show="showem">
+                    {{pokemon.evolutionmethod}}
+                </h5>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-6" ng-repeat="type in pokemon.types">
+                <h5 class="type" ng-class="type">
+                    {{type}}
+                </h5>
+            </div>
+
+        </div>
+    </div>
+    <div class="col-xs-3">
+        <div class="row">
+            <div class="col-xs-12  font-gray">
+                <h5 class="text-right"># {{pokemon.number}}</h5>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-6 IconAlign">
+                <img role="button" ng-src="{{CaughtImage(pokemon)}}" class="img-responsive" ng-click="CaughAddOrRemove(pokemon);" />
+            </div>
+            <div class="col-xs-6 IconAlign">
+                <img role="button" ng-src="{{BattleBoxImage(pokemon)}}" class="img-responsive" ng-click="BattleBoxAddOrRemove(pokemon);" />
+            </div>
+        </div>
+    </div>
+</div>

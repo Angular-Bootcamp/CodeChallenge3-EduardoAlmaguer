@@ -1,16 +1,8 @@
 ﻿'use strict';
 
-jQuery(".menu-button").click(function (e) {
-    var $this = $(this);
-    $this.parent().siblings().removeClass('navbar-active').end().addClass('navbar-active');
-});
 
-jQuery(".toggle").click(function (e) {
-    jQuery(".toggle").toggle();
-});
+var MyLocalStorage = {
 
-var MyLocalStorage =
-{
     getArray: function (key) {
         var str = localStorage.getItem(key) !== null ? localStorage.getItem(key) : "[]";
         var JSon = JSON.parse(str);
@@ -32,8 +24,17 @@ var MyLocalStorage =
         return JSON.parse(json);
     },
 
-    setObject: function (key,object) {
+    setObject: function (key, object) {
         var string = JSON.stringify(object);
         localStorage.setItem(key, string);
     }
+}
+
+function IsStored(key, number) {
+    var arr = MyLocalStorage.getArray(key);
+
+    var found = jQuery.inArray(number, arr);
+    if (found >= 0)
+        return true;
+    else return false;
 }

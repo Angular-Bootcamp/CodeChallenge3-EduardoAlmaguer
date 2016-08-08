@@ -1,11 +1,11 @@
 ﻿'use strict';
 
 App.controller("PokemonController",
-    function AppController($scope, AppData, $resource, $location) {
+    function AppController($scope, AppData, $resource, $location, $rootScope) {
 
         $scope.SortOrder = 'number';
 
-        $scope.version = '1.41';
+        $scope.version = '1.44';
 
         $scope.init = function () {
             var version = $scope.version;
@@ -160,17 +160,65 @@ App.controller("PokemonController",
             else return false;
         }
 
+        $scope.changeOption = function (option) {
+            $rootScope.OldOption = $rootScope.Option;
+            $rootScope.Option = option;
+            if (option === 'DESCRIPTION') {
+                jQuery(".toggle-container").toggle();
+                jQuery(".glyphicon-chevron-left").toggle();
+                jQuery("#navbar").collapse("hide");
+                jQuery("button.toggle").show();
+                jQuery("span.toggle").hide();
+            }
+            else {
+                if ($(".glyphicon-chevron-left").is(":visible")) {
+                    jQuery(".toggle-container").toggle();
+                    jQuery(".glyphicon-chevron-left").toggle();
+                }
 
-
+            }
+        };
+        
 
     });
 
 App.controller("MainController",
-    function AppController($scope) {
+    function AppController($scope, $rootScope) {
 
-        $scope.Option = '';
+        $rootScope.Option = '';
 
-        $scope.changeOption = function (Option) {
-            $scope.Option = Option;
+        $scope.Option = function ()
+        {
+            return $rootScope.Option;
+        };
+
+        $rootScope.OldOption;
+
+        $scope.changeOption = function (option) {
+            $rootScope.OldOption = $rootScope.Option;
+            $rootScope.Option = option;
+            if (option === 'DESCRIPTION') {
+                jQuery(".toggle-container").toggle();
+                jQuery(".glyphicon-chevron-left").toggle();
+                jQuery("#navbar").collapse("hide");
+                jQuery("button.toggle").show();
+                jQuery("span.toggle").hide();
+            }
+            else
+            {
+                if ($(".glyphicon-chevron-left").is(":visible"))
+                {
+                    jQuery(".toggle-container").toggle();
+                    jQuery(".glyphicon-chevron-left").toggle();
+                }
+                
+            }
+            
+        };
+
+        $scope.goBack=function()
+        {
+            $scope.changeOption($scope.OldOption);
+            window.history.back();
         };
     });
