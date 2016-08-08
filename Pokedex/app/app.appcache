@@ -1,4 +1,5 @@
 ﻿CACHE MANIFEST
+
 index.html
 templates/Description.html
 templates/Pokemon.html
@@ -31,6 +32,8 @@ fonts/glyphicons-halflings-regular.woff2
 fonts/glyphicons-halflings-regular.woff
 fonts/glyphicons-halflings-regular.ttf
 
+data/pokemon.json
 NETWORK:
 
-http://pokeapi.co/media/sprites/pokemon/
+http://pokeapi.co/media/sprites/pokemon/<p>
+
