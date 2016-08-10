@@ -5,7 +5,7 @@ App.controller("PokemonController",
 
         $scope.SortOrder = 'number';
 
-        $scope.version = '1.44';
+        $scope.version = '1.45';
 
         $scope.Reverse = false;
 
